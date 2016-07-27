@@ -18,7 +18,7 @@ difference(){
 }
 
 module connector_hole(width, thickness, height) {
-    cube([thickness + hole_buffer, width, height + hole_buffer], center = true);
+    cube([(thickness * 2) + hole_buffer, width, height + hole_buffer], center = true);
 }
 
 module motor_support(width, chamfer_width, support_height, skirt_height, thickness) {
