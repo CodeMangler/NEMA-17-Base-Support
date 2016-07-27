@@ -1,9 +1,9 @@
 width = 42.3; // NEMA 17s are 42.3 x 42.3 x motor_height
 chamfer_width = 33; // Set it to the same as width if there is no chamfer
-support_height = 20.5;
+support_height = 17.5;
 
 skirt_height = 4;
-thickness = 2; // Additional thickness (which primarily shows up as the skirt thickness in the model)
+thickness = 1; // Additional thickness (which primarily shows up as the skirt thickness in the model)
 
 connector_width = 16;
 
@@ -23,7 +23,7 @@ module connector_hole(width, thickness, height) {
 
 module motor_support(width, chamfer_width, support_height, skirt_height, thickness) {
     difference() {
-        motor_body(width + thickness, chamfer_width + thickness, support_height + skirt_height);
+        motor_body(width + (thickness * 2), chamfer_width + (thickness * 2), support_height + skirt_height);
         translate([0, 0, support_height / 2]) {
             motor_body(width, chamfer_width, skirt_height + hole_buffer);
         };
